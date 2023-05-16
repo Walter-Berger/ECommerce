@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{C2AE0171-139F-4540-AA11-37D6FE361E83}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{B9C36D7D-8822-4F68-85B4-C52C6FD61DE3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ApiGateways", "ApiGateways", "{19C4EAC3-8ACF-44E3-8DF1-901BDB5BDED0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{E9AC3C5F-4863-4D90-854E-45DE89541C6D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{19C4EAC3-8ACF-44E3-8DF1-901BDB5BDED0} = {C2AE0171-139F-4540-AA11-37D6FE361E83}
+		{E9AC3C5F-4863-4D90-854E-45DE89541C6D} = {C2AE0171-139F-4540-AA11-37D6FE361E83}
+	EndGlobalSection
+EndGlobal
