@@ -11,4 +11,15 @@ public static class RequestToCmdMapper
         );
         return result;
     }
+
+    public static UpdateBookCmd ToCommand(this UpdateBookRquest request, Guid id)
+    {
+        var result = new UpdateBookCmd(
+            Id: id,
+            Author: request.Author,
+            Title: request.Title,
+            Price: request.Price
+        );
+        return result;
+    }
 }

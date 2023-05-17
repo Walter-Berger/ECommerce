@@ -7,6 +7,7 @@ public static class ApiEndpoints
         // map book endpoints
         endpoints.MapCreateBook();
         endpoints.MapBuyBook();
+        endpoints.MapUpdateBook();
 
         return endpoints;
     }

@@ -12,7 +12,7 @@ public class BuyBookCmdHandler : IRequestHandler<BuyBookCmd, Unit>
     public async Task<Unit> Handle(BuyBookCmd request, CancellationToken cancellationToken)
     {
         // check if the requested book exists and is not already bought
-        var book = await _databaseContext.Books.FirstOrDefaultAsync(x => x.Id == request.Id)
+        var book = await _databaseContext.Books.FirstOrDefaultAsync(x => x.Id == request.Id, cancellationToken)
             ?? throw new NotFoundException(ErrorDetails.BookNotFound);
 
         // check if the book is already bought or loaned

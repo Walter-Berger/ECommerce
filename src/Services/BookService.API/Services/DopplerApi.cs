@@ -2,7 +2,7 @@
 
 public class DopplerApi
 {
-    [JsonPropertyName("USERTDB_CONNECTION_STRING")]
+    [JsonPropertyName("USERDB_CONNECTION_STRING")]
     public string UserDbConnectionString { get; set; } = string.Empty;
 
     [JsonPropertyName("BOOKDB_CONNECTION_STRING")]
