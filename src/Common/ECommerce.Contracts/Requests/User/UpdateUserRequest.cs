@@ -1,4 +1,4 @@
-﻿namespace UserService.Contracts.Requests;
+﻿namespace ECommerce.Contracts.Requests;
 
 public record UpdateUserRequest(
     Guid Id,

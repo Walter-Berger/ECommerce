@@ -2,7 +2,6 @@
 
 public static class ErrorDetails
 {
-
     // 404 errors
     public const string SecretsNotFound = "Could not read secrets from doppler.";
     public const string UserNotFound = "No user found with the given id in database.";

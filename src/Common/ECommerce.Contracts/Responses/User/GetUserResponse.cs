@@ -1,4 +1,4 @@
-﻿namespace UserService.Contracts.Responses;
+﻿namespace ECommerce.Contracts.Responses;
 
 public record GetUserResponse(
     Guid Id,

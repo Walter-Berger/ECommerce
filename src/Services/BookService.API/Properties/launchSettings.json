@@ -1,11 +1,11 @@
 ﻿{
   "$schema": "https://json.schemastore.org/launchsettings.json",
   "profiles": {
-    "UserService.API": {
+    "BookService.API": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": false,
-      "applicationUrl": "http://localhost:61020",
+      "applicationUrl": "http://localhost:61021",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
