@@ -12,6 +12,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{E9AC3C5F-4863-4D90-854E-45DE89541C6D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{D50E06BE-8BE6-4F5A-9B14-177D0215AF58}"
+	ProjectSection(SolutionItems) = preProject
+		src\ApiGateway\OcelotGateway\Program.cs = src\ApiGateway\OcelotGateway\Program.cs
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ECommerce.Contracts", "src\Common\ECommerce.Contracts\ECommerce.Contracts.csproj", "{F2E904E7-F6BC-433B-AA9D-E21E830862E5}"
 EndProject
@@ -21,7 +24,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookService.API", "src\Serv
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ECommerce.Events", "src\Common\ECommerce.Events\ECommerce.Events.csproj", "{491C5454-6405-499A-B70A-D2538B41228C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OcelotGateway", "src\ApiGateway\OcelotGateway\OcelotGateway.csproj", "{8BF4C8EB-6E3B-4F0A-85B2-40AC65EC0F93}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OcelotGateway", "src\ApiGateway\OcelotGateway\OcelotGateway.csproj", "{8BF4C8EB-6E3B-4F0A-85B2-40AC65EC0F93}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
