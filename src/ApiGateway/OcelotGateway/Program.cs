@@ -1,17 +1,23 @@
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
-using System.Text;
 using OcelotGateway;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// ------------ Start Parse Configuration ---------------- //
 var secrets = await DopplerApi.FetchSecretsAsync();
+var baseUriOcelot = secrets.BaseUriOcelot;
+var userServiceConfig = secrets.UserServiceConfigOcelot;
 
-var jsonString = secrets.RoutesForOcelot;
-byte[] jsonBytes = Encoding.UTF8.GetBytes(jsonString);
-Stream stream = new MemoryStream(jsonBytes);
+Stream userServiceStream = new MemoryStream(Encoding.UTF8.GetBytes(userServiceConfig));
+Stream baseUriStream = new MemoryStream(Encoding.UTF8.GetBytes(baseUriOcelot));
+// ------------ End Parse Configuration ------------------ //
 
-builder.Configuration.AddJsonStream(stream);
+builder.Configuration
+    .AddJsonStream(baseUriStream)
+    .AddJsonStream(userServiceStream);
+
 builder.Services.AddOcelot();
 
 var app = builder.Build();

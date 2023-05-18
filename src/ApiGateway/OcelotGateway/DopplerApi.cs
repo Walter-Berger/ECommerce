@@ -7,8 +7,11 @@ namespace OcelotGateway;
 
 public class DopplerApi
 {
-    [JsonPropertyName("ROUTES_FOR_OCELOT")]
-    public string RoutesForOcelot { get; set; } = string.Empty;    
+    [JsonPropertyName("USERSERVICE_CONFIG_FOR_OCELOT")]
+    public string UserServiceConfigOcelot { get; set; } = string.Empty;     
+    
+    [JsonPropertyName("BASE_URI_OCELOT")]
+    public string BaseUriOcelot { get; set; } = string.Empty;    
     
     [JsonPropertyName("USERDB_CONNECTION_STRING")]
     public string UserDbConnectionString { get; set; } = string.Empty;
