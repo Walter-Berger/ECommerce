@@ -7,11 +7,11 @@ namespace OcelotGateway;
 
 public class DopplerApi
 {
-    [JsonPropertyName("USERSERVICE_CONFIG_FOR_OCELOT")]
-    public string UserServiceConfigOcelot { get; set; } = string.Empty;     
+    [JsonPropertyName("USERSERVICE_CONFIG_OCELOT")]
+    public string UserServiceConfig { get; set; } = string.Empty;     
     
-    [JsonPropertyName("BASE_URI_OCELOT")]
-    public string BaseUriOcelot { get; set; } = string.Empty;    
+    [JsonPropertyName("BASE_URL_OCELOT")]
+    public string BaseUrlOcelot { get; set; } = string.Empty;    
     
 
     public static async Task<DopplerApi> FetchSecretsAsync()

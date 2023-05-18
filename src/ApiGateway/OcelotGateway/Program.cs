@@ -7,16 +7,14 @@ var builder = WebApplication.CreateBuilder(args);
 
 // ------------ Start Parse Configuration ---------------- //
 var secrets = await DopplerApi.FetchSecretsAsync();
-var baseUriOcelot = secrets.BaseUriOcelot;
-var userServiceConfig = secrets.UserServiceConfigOcelot;
 
-Stream userServiceStream = new MemoryStream(Encoding.UTF8.GetBytes(userServiceConfig));
-Stream baseUriStream = new MemoryStream(Encoding.UTF8.GetBytes(baseUriOcelot));
+Stream baseUrlOcelot = new MemoryStream(Encoding.UTF8.GetBytes(secrets.BaseUrlOcelot));
+Stream userServiceConfig = new MemoryStream(Encoding.UTF8.GetBytes(secrets.UserServiceConfig));
 // ------------ End Parse Configuration ------------------ //
 
 builder.Configuration
-    .AddJsonStream(baseUriStream)
-    .AddJsonStream(userServiceStream);
+    .AddJsonStream(baseUrlOcelot)
+    .AddJsonStream(userServiceConfig);
 
 builder.Services.AddOcelot();
 
