@@ -13,11 +13,6 @@ public class DopplerApi
     [JsonPropertyName("BASE_URI_OCELOT")]
     public string BaseUriOcelot { get; set; } = string.Empty;    
     
-    [JsonPropertyName("USERDB_CONNECTION_STRING")]
-    public string UserDbConnectionString { get; set; } = string.Empty;
-
-    [JsonPropertyName("BOOKDB_CONNECTION_STRING")]
-    public string BookDbConnectionString { get; set; } = string.Empty;
 
     public static async Task<DopplerApi> FetchSecretsAsync()
     {
@@ -30,7 +25,7 @@ public class DopplerApi
         var secrets = await JsonSerializer.DeserializeAsync<DopplerApi>(await streamTask);
 
         return secrets is null
-            ? throw new Exception("Woa scheisse")
+            ? throw new Exception("Could not read secrets from doppler.")
             : secrets;
     }
 }
