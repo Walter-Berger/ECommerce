@@ -9,5 +9,6 @@ public static class ErrorDetails
 
     // 500 errors
     public const string CouldNotSaveChanges = "Something went wrong while saving changes in database.";
-    public const string CannotDeleteLoanedBook = "You cannot delete a book that is currently loaned.";
+    public const string CannotDeleteLoanedBook = "Cannot delete a book which is currently loaned.";
+    public const string CannotUpdateLoanedBook = "Cannot update a book which is currently loaned.";
 }

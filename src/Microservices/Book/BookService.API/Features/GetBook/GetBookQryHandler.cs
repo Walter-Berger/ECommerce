@@ -12,7 +12,7 @@ public class GetBookQryHandler : IRequestHandler<GetBookQry, GetBookQryResult>
     public async Task<GetBookQryResult> Handle(GetBookQry request, CancellationToken cancellationToken)
     {
         var book = await _databaseContext.Books.FirstOrDefaultAsync(x => x.Id == request.Id && x.IsBought == false, cancellationToken)
-            ?? throw new DatabaseException(ErrorDetails.BookNotFound);
+            ?? throw new NotFoundException(ErrorDetails.BookNotFound);
 
         var result = new GetBookQryResult(
             Id: book.Id,

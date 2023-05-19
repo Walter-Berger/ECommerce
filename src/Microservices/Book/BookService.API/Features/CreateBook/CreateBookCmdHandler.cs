@@ -21,7 +21,7 @@ public class CreateBookCmdHandler : IRequestHandler<CreateBookCmd, Unit>
         );
 
         // TODO: check if the input is valid
-        
+
         // save book in database
         await _databaseContext.AddAsync(book, cancellationToken);
         await _databaseContext.SaveChangesAsync(cancellationToken);

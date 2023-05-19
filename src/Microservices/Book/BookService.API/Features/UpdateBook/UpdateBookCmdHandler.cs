@@ -15,7 +15,13 @@ public class UpdateBookCmdHandler : IRequestHandler<UpdateBookCmd, Unit>
     {
         // check if the requested book exists in database
         var book = await _databaseContext.Books.FirstOrDefaultAsync(x => x.Id == request.Id && x.IsBought == false, cancellationToken)
-            ?? throw new DatabaseException(ErrorDetails.BookNotFound);
+            ?? throw new NotFoundException(ErrorDetails.BookNotFound);
+
+        // check if the book is currently loaned
+        if (book.IsLoaned is true)
+        {
+            throw new NotFoundException(ErrorDetails.CannotUpdateLoanedBook);
+        }
 
         // create a model of the updated version
         var updatedBook = new Book(

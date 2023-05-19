@@ -13,7 +13,7 @@ public class DeleteBookCmdHandler : IRequestHandler<DeleteBookCmd, Unit>
     {
         // check if book exists
         var book = await _databaseContext.Books.FirstOrDefaultAsync(x => x.Id == request.Id && x.IsBought == false, cancellationToken) 
-            ?? throw new DatabaseException(ErrorDetails.BookNotFound);
+            ?? throw new NotFoundException(ErrorDetails.BookNotFound);
 
         // check if book is currently loaned
         if (book.IsLoaned is true)
