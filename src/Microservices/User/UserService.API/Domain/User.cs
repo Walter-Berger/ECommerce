@@ -1,4 +1,4 @@
-﻿namespace UserService.API.Models;
+﻿namespace UserService.API.Domain;
 
 public class User
 {

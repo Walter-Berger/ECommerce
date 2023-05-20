@@ -2,30 +2,25 @@
 
 public class LoanBookCmdHandler : IRequestHandler<LoanBookCmd, Unit>
 {
-    private readonly IRepository<Book> _bookRepository;
+    private readonly DatabaseContext _databaseContext;
 
-    public LoanBookCmdHandler(IRepository<Book> bookRepository)
+    public LoanBookCmdHandler(DatabaseContext databaseContext)
     {
-        _bookRepository = bookRepository;
+        _databaseContext = databaseContext;
     }
 
     public async Task<Unit> Handle(LoanBookCmd request, CancellationToken cancellationToken)
     {
-        var book = await _bookRepository.GetByIdAsync(request.Id, cancellationToken)
+        var book = await _databaseContext.Books.FirstOrDefaultAsync(x => x.Id == request.Id && x.IsBought == false, cancellationToken)
             ?? throw new NotFoundException(ErrorDetails.BookNotFound);
 
-        // check if the book is already bought currently loaned
-        if (book.IsBought)
-        {
-            throw new NotFoundException(ErrorDetails.BookSold);
-        }
-        if (book.IsLoaned)
+        if (book.IsLoaned is true)
         {
             throw new NotFoundException(ErrorDetails.BookLoaned);
         }
 
         book.Loan();
-        await _bookRepository.SaveChangesAsync(cancellationToken);
+        await _databaseContext.SaveChangesAsync(cancellationToken);
 
         return Unit.Value;
     }

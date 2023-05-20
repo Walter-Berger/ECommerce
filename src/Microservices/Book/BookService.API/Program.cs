@@ -11,7 +11,6 @@ builder.Services.AddValidatorsFromAssemblyContaining<Program>();
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblyContaining<Program>());
 builder.Services.AddTransient<ExceptionHandlingMiddleware>();
 builder.Services.AddScoped<ITimeFactory, TimeFactory>();
-builder.Services.AddScoped<IRepository<Book>, Repository<Book>>();
 
 var app = builder.Build();
 

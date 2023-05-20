@@ -2,11 +2,11 @@
 
 public class CreateBookCmdHandler : IRequestHandler<CreateBookCmd, Unit>
 {
-    private readonly IRepository<Book> _bookRepository;
+    private readonly DatabaseContext _databaseContext;
 
-    public CreateBookCmdHandler(IRepository<Book> bookRepository)
+    public CreateBookCmdHandler(DatabaseContext databaseContext)
     {
-        _bookRepository = bookRepository;
+        _databaseContext = databaseContext;
     }
 
     public async Task<Unit> Handle(CreateBookCmd request, CancellationToken cancellationToken)
@@ -19,8 +19,11 @@ public class CreateBookCmdHandler : IRequestHandler<CreateBookCmd, Unit>
             price: request.Price
         );
 
-        // add and save book in database
-        await _bookRepository.AddAsync(book, cancellationToken);
+        // TODO: check if the input is valid
+
+        // save book in database
+        await _databaseContext.AddAsync(book, cancellationToken);
+        await _databaseContext.SaveChangesAsync(cancellationToken);
 
         return Unit.Value;
     }

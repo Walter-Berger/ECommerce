@@ -2,27 +2,23 @@
 
 public class UpdateBookCmdHandler : IRequestHandler<UpdateBookCmd, Unit>
 {
-    private readonly IRepository<Book> _bookRepository;
+    private readonly DatabaseContext _databaseContext;
     private readonly ITimeFactory _timeFactory;
 
-    public UpdateBookCmdHandler(IRepository<Book> bookRepository, ITimeFactory timeFactory)
+    public UpdateBookCmdHandler(DatabaseContext databaseContext, ITimeFactory timeFactory)
     {
-        _bookRepository = bookRepository;
+        _databaseContext = databaseContext;
         _timeFactory = timeFactory;
     }
 
     public async Task<Unit> Handle(UpdateBookCmd request, CancellationToken cancellationToken)
     {
         // check if the requested book exists in database
-        var book = await _bookRepository.GetByIdAsync(request.Id, cancellationToken)
+        var book = await _databaseContext.Books.FirstOrDefaultAsync(x => x.Id == request.Id && x.IsBought == false, cancellationToken)
             ?? throw new NotFoundException(ErrorDetails.BookNotFound);
 
-        // check if the book is already bought currently loaned
-        if (book.IsBought)
-        {
-            throw new NotFoundException(ErrorDetails.BookSold);
-        }
-        if (book.IsLoaned)
+        // check if the book is currently loaned
+        if (book.IsLoaned is true)
         {
             throw new NotFoundException(ErrorDetails.CannotUpdateLoanedBook);
         }
@@ -36,7 +32,7 @@ public class UpdateBookCmdHandler : IRequestHandler<UpdateBookCmd, Unit>
 
         // update the old book
         book.Update(updatedBook, _timeFactory.UnixTimeNow());
-        await _bookRepository.SaveChangesAsync(cancellationToken);
+        await _databaseContext.SaveChangesAsync(cancellationToken);
 
         return Unit.Value;
     }
