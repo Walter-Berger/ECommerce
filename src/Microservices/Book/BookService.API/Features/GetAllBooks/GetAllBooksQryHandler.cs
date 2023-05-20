@@ -2,17 +2,17 @@
 
 public class GetAllBooksQryHandler : IRequestHandler<GetAllBooksQry, List<GetAllBooksQryResult>>
 {
-    private readonly DatabaseContext _databaseContext;
+    private readonly IRepository<Book> _bookRepository;
 
-    public GetAllBooksQryHandler(DatabaseContext databaseContext)
+    public GetAllBooksQryHandler(IRepository<Book> bookRepository)
     {
-        _databaseContext = databaseContext;
+        _bookRepository = bookRepository;
     }
 
     public async Task<List<GetAllBooksQryResult>> Handle(GetAllBooksQry request, CancellationToken cancellationToken)
     {
         // check if there are any books in database
-        var books = await _databaseContext.Books.Where(x => x.IsBought == false).ToListAsync(cancellationToken);
+        var books = await _bookRepository.GetAllAsync(cancellationToken);
 
         var results = new List<GetAllBooksQryResult>();
         foreach (var book in books)
@@ -25,6 +25,7 @@ public class GetAllBooksQryHandler : IRequestHandler<GetAllBooksQry, List<GetAll
                 IsLoaned: book.IsLoaned));
         }
 
+        // if there were no books found, return an empty list
         return results;
     }
 }

@@ -2,28 +2,31 @@
 
 public class DeleteBookCmdHandler : IRequestHandler<DeleteBookCmd, Unit>
 {
-    private readonly DatabaseContext _databaseContext;
+    private readonly IRepository<Book> _bookRepository;
 
-    public DeleteBookCmdHandler(DatabaseContext databaseContext)
+    public DeleteBookCmdHandler(IRepository<Book> bookRepository)
     {
-        _databaseContext = databaseContext;
+        _bookRepository = bookRepository;
     }
 
     public async Task<Unit> Handle(DeleteBookCmd request, CancellationToken cancellationToken)
     {
         // check if book exists
-        var book = await _databaseContext.Books.FirstOrDefaultAsync(x => x.Id == request.Id && x.IsBought == false, cancellationToken) 
+        var book = await _bookRepository.GetByIdAsync(request.Id, cancellationToken)
             ?? throw new NotFoundException(ErrorDetails.BookNotFound);
 
-        // check if book is currently loaned
-        if (book.IsLoaned is true)
+        // check if the book is already bought currently loaned
+        if (book.IsBought)
+        {
+            throw new NotFoundException(ErrorDetails.BookNotFound);
+        }
+        if (book.IsLoaned)
         {
             throw new DatabaseException(ErrorDetails.CannotDeleteLoanedBook);
         }
 
         // remove book from database
-        _databaseContext.Remove(book);
-        await _databaseContext.SaveChangesAsync(cancellationToken);
+        await _bookRepository.DeleteAsync(book, cancellationToken);
 
         return Unit.Value;
     }

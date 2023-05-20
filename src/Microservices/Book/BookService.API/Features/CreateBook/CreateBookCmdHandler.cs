@@ -1,13 +1,12 @@
 ﻿namespace BookService.API.Features.CreateBook;
 
-
 public class CreateBookCmdHandler : IRequestHandler<CreateBookCmd, Unit>
 {
-    private readonly DatabaseContext _databaseContext;
+    private readonly IRepository<Book> _bookRepository;
 
-    public CreateBookCmdHandler(DatabaseContext databaseContext)
+    public CreateBookCmdHandler(IRepository<Book> bookRepository)
     {
-        _databaseContext = databaseContext;
+        _bookRepository = bookRepository;
     }
 
     public async Task<Unit> Handle(CreateBookCmd request, CancellationToken cancellationToken)
@@ -20,11 +19,8 @@ public class CreateBookCmdHandler : IRequestHandler<CreateBookCmd, Unit>
             price: request.Price
         );
 
-        // TODO: check if the input is valid
-
-        // save book in database
-        await _databaseContext.AddAsync(book, cancellationToken);
-        await _databaseContext.SaveChangesAsync(cancellationToken);
+        // add and save book in database
+        await _bookRepository.AddAsync(book, cancellationToken);
 
         return Unit.Value;
     }

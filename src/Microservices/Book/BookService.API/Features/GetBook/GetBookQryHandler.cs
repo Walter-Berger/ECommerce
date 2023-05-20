@@ -2,17 +2,27 @@
 
 public class GetBookQryHandler : IRequestHandler<GetBookQry, GetBookQryResult>
 {
-    private readonly DatabaseContext _databaseContext;
+    private readonly IRepository<Book> _bookRepository;
 
-    public GetBookQryHandler(DatabaseContext databaseContext)
+    public GetBookQryHandler(IRepository<Book> bookRepository)
     {
-        _databaseContext = databaseContext;
+        _bookRepository = bookRepository;
     }
 
     public async Task<GetBookQryResult> Handle(GetBookQry request, CancellationToken cancellationToken)
     {
-        var book = await _databaseContext.Books.FirstOrDefaultAsync(x => x.Id == request.Id && x.IsBought == false, cancellationToken)
+        var book = await _bookRepository.GetByIdAsync(request.Id, cancellationToken)
             ?? throw new NotFoundException(ErrorDetails.BookNotFound);
+
+        // check if the book is already bought currently loaned
+        if (book.IsBought)
+        {
+            throw new NotFoundException(ErrorDetails.BookSold);
+        }
+        if (book.IsLoaned)
+        {
+            throw new NotFoundException(ErrorDetails.BookLoaned);
+        }
 
         var result = new GetBookQryResult(
             Id: book.Id,

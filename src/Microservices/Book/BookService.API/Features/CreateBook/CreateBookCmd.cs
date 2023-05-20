@@ -1,6 +1,5 @@
 ﻿namespace BookService.API.Features.CreateBook;
 
-
 public record CreateBookCmd(
     string Title,
     string Author,

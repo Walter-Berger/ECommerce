@@ -13,6 +13,7 @@ global using BookService.API.Features.UpdateBook;
 global using BookService.API.Interfaces;
 global using BookService.API.Middlewares;
 global using BookService.API.Models;
+global using BookService.API.Repositories;
 global using BookService.API.Services;
 global using BookService.Dto.Requests;
 global using BookService.Dto.Responses;
