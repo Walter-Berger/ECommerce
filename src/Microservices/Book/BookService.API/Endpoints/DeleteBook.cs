@@ -9,7 +9,8 @@ public static class DeleteBook
             var cmd = new DeleteBookCmd(id);
             await mediator.Send(cmd, ct);
             return Results.Ok("Book deleted.");
-        });
+        })
+        .RequireAuthorization();
 
         return endpoints;
     }

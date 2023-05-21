@@ -21,7 +21,8 @@ public static class GetAllUsers
             }
 
             return Results.Ok(responses);
-        });
+        })
+        .RequireAuthorization();
 
         return endpoints;
     }

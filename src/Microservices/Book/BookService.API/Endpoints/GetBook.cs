@@ -16,7 +16,8 @@ public static class GetBook
                 IsLoaned: result.IsLoaned);
 
             return response;
-        });
+        })
+        .RequireAuthorization();
 
         return endpoints;
     }

@@ -9,7 +9,8 @@ public static class DeleteUser
             var cmd = new DeleteUserCmd(id);
             await mediator.Send(cmd, ct);
             return Results.Ok();
-        });
+        })
+        .RequireAuthorization();
 
         return endpoints;
     }

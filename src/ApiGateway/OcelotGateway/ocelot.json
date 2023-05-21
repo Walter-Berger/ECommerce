@@ -1,5 +1,18 @@
 {
   "Routes": [
+    // AuthService routes
+    {
+      "DownstreamPathTemplate": "/api/auth",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5022
+        }
+      ],
+      "UpstreamPathTemplate": "/api/auth",
+      "UpstreamHttpMethod": [ "Get", "Post" ]
+    },
     // UserService routes
     {
       "DownstreamPathTemplate": "/api/users/{id}",

@@ -14,7 +14,8 @@ public static class CreateUser
 
             await mediator.Send(cmd, ct);
             return Results.Ok();
-        });
+        })
+        .RequireAuthorization();
 
         return endpoints;
     }

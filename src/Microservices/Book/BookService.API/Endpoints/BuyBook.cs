@@ -10,7 +10,8 @@ public static class BuyBook
             await mediator.Send(cmd, ct);
 
             return Results.Ok();
-        });
+        })
+        .RequireAuthorization();
 
         return endpoints;
     }

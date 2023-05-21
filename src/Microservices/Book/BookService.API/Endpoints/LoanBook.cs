@@ -12,7 +12,8 @@ public static class LoanBook
             await mediator.Send(cmd, ct);
 
             return Results.Ok();
-        });
+        })
+        .RequireAuthorization();
 
         return endpoints;
     }

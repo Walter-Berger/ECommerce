@@ -1,9 +1,12 @@
 ﻿global using FluentValidation;
 global using MediatR;
+global using Microsoft.AspNetCore.Authentication.JwtBearer;
 global using Microsoft.EntityFrameworkCore;
 global using Microsoft.EntityFrameworkCore.Metadata.Builders;
+global using Microsoft.IdentityModel.Tokens;
 global using Serilog;
 global using System.Reflection;
+global using System.Text;
 global using UserService.API.Constants.ApiRoutes;
 global using UserService.API.Constants.ErrorDetails;
 global using UserService.API.Data;

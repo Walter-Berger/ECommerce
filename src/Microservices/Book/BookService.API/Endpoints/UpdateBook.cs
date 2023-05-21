@@ -14,7 +14,8 @@ public static class UpdateBook
 
             await mediator.Send(cmd, ct);
             return Results.Ok();
-        });
+        })
+        .RequireAuthorization();
 
         return endpoint;
     }

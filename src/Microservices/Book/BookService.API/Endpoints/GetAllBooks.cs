@@ -21,7 +21,8 @@ public static class GetAllBooks
             }
 
             return Results.Ok(responses);
-        });
+        })
+        .RequireAuthorization();
 
         return endpoints;
     }

@@ -16,7 +16,8 @@ public static class GetUser
                 BirthDate: result.BirthDate);
 
             return Results.Ok(response);
-        });
+        })
+        .RequireAuthorization();
 
         return endpoints;
     }
