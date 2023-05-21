@@ -23,5 +23,5 @@ global using UserService.API.Interfaces;
 global using UserService.API.Middlewares;
 global using UserService.API.Services;
 global using UserService.API.Validators;
-global using UserService.Dto.Requests;
-global using UserService.Dto.Responses;
+global using ECommerce.Contracts.Requests;
+global using ECommerce.Contracts.Responses;
