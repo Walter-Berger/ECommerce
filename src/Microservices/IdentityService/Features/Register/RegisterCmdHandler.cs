@@ -2,9 +2,9 @@
 
 public class RegisterCmdHandler : IRequestHandler<RegisterCmd, Unit>
 {
-    private readonly UserManager<IdentityUser> _userManager;
+    private readonly UserManager<IdentityUser<Guid>> _userManager;
 
-    public RegisterCmdHandler(UserManager<IdentityUser> userManager)
+    public RegisterCmdHandler(UserManager<IdentityUser<Guid>> userManager)
     {
         _userManager = userManager;
     }
@@ -16,7 +16,7 @@ public class RegisterCmdHandler : IRequestHandler<RegisterCmd, Unit>
             throw new Exception(ErrorDetails.PasswordMustMatch);
         }
 
-        var identityUser = new IdentityUser
+        var identityUser = new IdentityUser<Guid>
         {
             UserName = request.UserName,
             Email = request.UserName

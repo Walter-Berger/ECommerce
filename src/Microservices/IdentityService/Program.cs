@@ -18,15 +18,15 @@ builder.Services.AddScoped<IJwtService, JwtService>(_ => new JwtService(
     jwtIssuer: jwtIssuer,
     jwtAudience: jwtAudience));
 
-builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
-{
-    options.Password.RequireDigit = true;
-    options.Password.RequiredLength = 8;
-    options.Password.RequireLowercase = true;
-    options.Password.RequireUppercase = true;
-    options.Password.RequireNonAlphanumeric = true;
-    options.User.RequireUniqueEmail = true;
-})
+builder.Services.AddIdentity<IdentityUser<Guid>, IdentityRole<Guid>>(options =>
+    {
+        options.Password.RequireDigit = true;
+        options.Password.RequiredLength = 8;
+        options.Password.RequireLowercase = true;
+        options.Password.RequireUppercase = true;
+        options.Password.RequireNonAlphanumeric = true;
+        options.User.RequireUniqueEmail = true;
+    })
     .AddEntityFrameworkStores<DatabaseContext>()
     .AddDefaultTokenProviders();
 

@@ -13,12 +13,12 @@ public class JwtService : IJwtService
         _jwtAudience = jwtAudience;
     }
 
-    public string GenerateAccessToken(IdentityUser user)
+    public string GenerateAccessToken(IdentityUser<Guid> user)
     {
         // create additional claims
         var claims = new List<Claim>
         {
-            new Claim("userId", user.Id),
+            new Claim("userId", user.Id.ToString()),
             new Claim(JwtRegisteredClaimNames.Email, user.UserName!)
         };
 

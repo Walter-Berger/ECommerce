@@ -2,5 +2,5 @@
 
 public interface IJwtService
 {
-    string GenerateAccessToken(IdentityUser user);
+    string GenerateAccessToken(IdentityUser<Guid> user);
 }

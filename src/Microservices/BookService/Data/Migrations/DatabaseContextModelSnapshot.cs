@@ -22,7 +22,7 @@ namespace BookService.Data.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("BookService.API.Models.Book", b =>
+            modelBuilder.Entity("BookService.Domain.Book", b =>
                 {
                     b.Property<Guid>("Id")
                         .HasColumnType("uuid");
