@@ -17,11 +17,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{EC7A48
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ECommerce.Contracts", "src\Common\ECommerce.Contracts\ECommerce.Contracts.csproj", "{5005004A-821D-4717-97DB-F0DFA6BC6B56}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityService", "src\Microservices\IdentityService\IdentityService.csproj", "{7469F248-BE21-42CE-8825-1BB20FFDC765}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityService", "src\Microservices\IdentityService\IdentityService.csproj", "{7469F248-BE21-42CE-8825-1BB20FFDC765}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountService", "src\Microservices\AccountService\AccountService.csproj", "{DB5846DC-78D4-4EA7-85B3-BF586B80AAE5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AccountService", "src\Microservices\AccountService\AccountService.csproj", "{DB5846DC-78D4-4EA7-85B3-BF586B80AAE5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookService", "src\Microservices\BookService\BookService.csproj", "{0B1373ED-F45A-463F-9D5B-5838C8758A8D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookService", "src\Microservices\BookService\BookService.csproj", "{0B1373ED-F45A-463F-9D5B-5838C8758A8D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

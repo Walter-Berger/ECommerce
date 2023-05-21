@@ -24,7 +24,7 @@ public class CreateUserCmdHandler : IRequestHandler<CreateUserCmd, Unit>
 
         // create new user
         var user = new User(
-            id: Guid.NewGuid(),
+            id: request.Id,
             email: request.Email,
             firstName: request.FirstName,
             lastName: request.LastName,
