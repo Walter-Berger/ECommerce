@@ -1,4 +1,4 @@
-﻿namespace UserService.API.Domain;
+﻿namespace AccountService.API.Domain;
 
 public class User
 {

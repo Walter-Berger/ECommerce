@@ -1,4 +1,4 @@
-﻿namespace UserService.API.Features.DeleteUser;
+﻿namespace AccountService.API.Features.DeleteUser;
 
 
 public class DeleteUserCmdHandler : IRequestHandler<DeleteUserCmd, Unit>

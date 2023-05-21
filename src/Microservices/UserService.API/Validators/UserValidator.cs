@@ -1,4 +1,4 @@
-﻿namespace UserService.API.Validators;
+﻿namespace AccountService.API.Validators;
 
 public class UserValidator : AbstractValidator<User>
 {

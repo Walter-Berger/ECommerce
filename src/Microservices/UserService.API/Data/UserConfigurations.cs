@@ -1,4 +1,4 @@
-﻿namespace UserService.API.Data.ModelConfigurations;
+﻿namespace AccountService.API.Data.ModelConfigurations;
 
 public class UserConfigurations : IEntityTypeConfiguration<User>
 {

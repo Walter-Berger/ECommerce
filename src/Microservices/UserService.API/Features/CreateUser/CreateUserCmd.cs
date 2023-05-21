@@ -1,4 +1,4 @@
-﻿namespace UserService.API.Features.CreateUser;
+﻿namespace AccountService.API.Features.CreateUser;
 
 
 public record CreateUserCmd(

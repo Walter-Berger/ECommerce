@@ -1,4 +1,4 @@
-﻿namespace UserService.API.Exceptions;
+﻿namespace AccountService.API.Exceptions;
 
 public class DatabaseException : Exception
 {

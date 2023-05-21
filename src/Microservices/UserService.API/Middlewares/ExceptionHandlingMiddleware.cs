@@ -1,4 +1,4 @@
-﻿namespace UserService.API.Middlewares;
+﻿namespace AccountService.API.Middlewares;
 
 
 public class ExceptionHandlingMiddleware : IMiddleware

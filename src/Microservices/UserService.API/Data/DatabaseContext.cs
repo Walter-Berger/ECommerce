@@ -1,4 +1,4 @@
-﻿namespace UserService.API.Data;
+﻿namespace AccountService.API.Data;
 
 public class DatabaseContext : DbContext
 {

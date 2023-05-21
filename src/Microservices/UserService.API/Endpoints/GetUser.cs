@@ -1,4 +1,4 @@
-﻿namespace UserService.API.Endpoints;
+﻿namespace AccountService.API.Endpoints;
 
 public static class GetUser
 {

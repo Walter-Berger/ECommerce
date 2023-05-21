@@ -1,4 +1,4 @@
-﻿namespace UserService.API.Features.UpdateUser;
+﻿namespace AccountService.API.Features.UpdateUser;
 
 
 public record UpdateUserCmd(

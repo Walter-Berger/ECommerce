@@ -1,4 +1,4 @@
-﻿namespace UserService.API.Services;
+﻿namespace AccountService.API.Services;
 
 
 public class TimeFactory : ITimeFactory

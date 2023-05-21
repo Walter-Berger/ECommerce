@@ -1,4 +1,4 @@
-﻿namespace UserService.API.Constants.ErrorDetails;
+﻿namespace AccountService.API.Constants.ErrorDetails;
 
 public static class ErrorDetails
 {

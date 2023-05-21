@@ -1,4 +1,4 @@
-﻿namespace UserService.API.Extensions;
+﻿namespace AccountService.API.Extensions;
 
 
 public static class ApiEndpoints

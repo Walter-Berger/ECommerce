@@ -1,4 +1,4 @@
-﻿namespace UserService.API.Interfaces;
+﻿namespace AccountService.API.Interfaces;
 
 
 public interface ITimeFactory

@@ -1,4 +1,4 @@
-﻿namespace UserService.API.Features.GetAllUsers;
+﻿namespace AccountService.API.Features.GetAllUsers;
 
 
 public record GetAllUsersQryResult(

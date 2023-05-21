@@ -1,4 +1,4 @@
-﻿namespace UserService.API.Constants.ApiRoutes;
+﻿namespace AccountService.API.Constants.ApiRoutes;
 
 public class EndpointRoutes
 {
