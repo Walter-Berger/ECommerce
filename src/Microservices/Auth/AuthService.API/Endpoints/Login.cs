@@ -1,6 +1,4 @@
-﻿using AuthService.Dto.Responses;
-
-namespace AuthService.API.Endpoints;
+﻿namespace AuthService.API.Endpoints;
 
 public static class Login
 {

@@ -11,6 +11,11 @@ public class RegisterCmdHandler : IRequestHandler<RegisterCmd, Unit>
 
     public async Task<Unit> Handle(RegisterCmd request, CancellationToken cancellationToken)
     {
+        if (!request.Password.Equals(request.ConfirmPassword))
+        {
+            throw new Exception(ErrorDetails.PasswordMustMatch);
+        }
+
         var identityUser = new IdentityUser
         {
             UserName = request.UserName,

@@ -20,7 +20,7 @@ public class CredentialService : ICredentialService
         string decodedCredentials = Encoding.UTF8.GetString(Convert.FromBase64String(encodedCredentials));
         string[] credentialsArray = decodedCredentials.Split(':', 2);
 
-        // check if credentials have the right format
+        // check if the credentials have the right format
         if (credentialsArray.Length != 2)
         {
             throw new BadHttpRequestException(ErrorDetails.InvalidCredentialsFormat);
