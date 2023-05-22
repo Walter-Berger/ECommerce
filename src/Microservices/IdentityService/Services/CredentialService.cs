@@ -16,7 +16,8 @@ public class CredentialService : ICredentialService
             throw new BadHttpRequestException(ErrorDetails.InvalidAuthHeaderFormat);
         }
 
-        string encodedCredentials = authorizationHeader.Substring(6).Trim();
+        // since we do not want the substring "Basic ", we start reading the auth header at index 6
+        string encodedCredentials = authorizationHeader[6..].Trim();
         string decodedCredentials = Encoding.UTF8.GetString(Convert.FromBase64String(encodedCredentials));
         string[] credentialsArray = decodedCredentials.Split(':', 2);
 
@@ -26,9 +27,11 @@ public class CredentialService : ICredentialService
             throw new BadHttpRequestException(ErrorDetails.InvalidCredentialsFormat);
         }
 
+        // get username und email from the credentials
         string username = credentialsArray[0];
         string password = credentialsArray[1];
 
+        // return them
         return (username, password);
     }
 }

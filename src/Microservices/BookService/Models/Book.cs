@@ -1,4 +1,4 @@
-﻿namespace BookService.Domain;
+﻿namespace BookService.Models;
 
 public class Book
 {

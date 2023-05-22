@@ -1,7 +1,7 @@
 ﻿global using BookService.Constants.ApiRoutes;
 global using BookService.Constants.ErrorDetails;
 global using BookService.Data;
-global using BookService.Domain;
+global using BookService.Models;
 global using BookService.Endpoints;
 global using BookService.Exceptions;
 global using BookService.Extensions;

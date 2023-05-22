@@ -2,11 +2,11 @@
 
 public class LoginQryHandler : IRequestHandler<LoginQry, LoginQryResult>
 {
-    private readonly UserManager<IdentityUser<Guid>> _userManager;
-    private readonly SignInManager<IdentityUser<Guid>> _signInManager;
+    private readonly UserManager<IdentityUser> _userManager;
+    private readonly SignInManager<IdentityUser> _signInManager;
     private readonly IJwtService _jwtService;
 
-    public LoginQryHandler(UserManager<IdentityUser<Guid>> userManager, SignInManager<IdentityUser<Guid>> signInManager, IJwtService jwtService)
+    public LoginQryHandler(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager, IJwtService jwtService)
     {
         _userManager = userManager;
         _signInManager = signInManager;

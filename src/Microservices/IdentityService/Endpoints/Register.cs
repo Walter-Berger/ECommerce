@@ -7,7 +7,9 @@ public static class Register
         endpoints.MapPost(EndpointRoutes.Auth.Register, async (RegisterRequest request, ISender mediator, CancellationToken ct) =>
         {
             var cmd = new RegisterCmd(
-                UserName: request.UserName,
+                Email: request.Email,
+                FirstName: request.FirstName,
+                LastName: request.LastName,
                 Password: request.Password,
                 ConfirmPassword: request.ConfirmPassword);
 

@@ -13,13 +13,14 @@ public class JwtService : IJwtService
         _jwtAudience = jwtAudience;
     }
 
-    public string GenerateAccessToken(IdentityUser<Guid> user)
+    public string GenerateAccessToken(IdentityUser user)
     {
         // create additional claims
         var claims = new List<Claim>
         {
-            new Claim("userId", user.Id.ToString()),
-            new Claim(JwtRegisteredClaimNames.Email, user.UserName!)
+            new Claim(JwtRegisteredClaimNames.Sub, user.Id.ToString()),
+            new Claim(JwtRegisteredClaimNames.Email, user.Email!),
+            new Claim(JwtRegisteredClaimNames.Iat, DateTimeOffset.UtcNow.ToUnixTimeSeconds().ToString())
         };
 
         // create signing credentials

@@ -1,4 +1,4 @@
-﻿namespace AccountService.Domain;
+﻿namespace AccountService.Models;
 
 public class User
 {

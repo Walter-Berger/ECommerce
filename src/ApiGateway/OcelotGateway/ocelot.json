@@ -15,7 +15,7 @@
     },
     // UserService routes
     {
-      "DownstreamPathTemplate": "/api/users/me",
+      "DownstreamPathTemplate": "/api/users/{id}",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
@@ -23,7 +23,7 @@
           "Port": 5020
         }
       ],
-      "UpstreamPathTemplate": "/api/users/me",
+      "UpstreamPathTemplate": "/api/users/{id}",
       "UpstreamHttpMethod": [ "Get", "Delete", "Put" ]
     },
     {

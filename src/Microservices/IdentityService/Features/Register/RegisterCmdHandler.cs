@@ -2,26 +2,29 @@
 
 public class RegisterCmdHandler : IRequestHandler<RegisterCmd, Unit>
 {
-    private readonly UserManager<IdentityUser<Guid>> _userManager;
+    private readonly UserManager<IdentityUser> _userManager;
 
-    public RegisterCmdHandler(UserManager<IdentityUser<Guid>> userManager)
+    public RegisterCmdHandler(UserManager<IdentityUser> userManager)
     {
         _userManager = userManager;
     }
 
     public async Task<Unit> Handle(RegisterCmd request, CancellationToken cancellationToken)
     {
+        // check if both passwords match
         if (!request.Password.Equals(request.ConfirmPassword))
         {
             throw new Exception(ErrorDetails.PasswordMustMatch);
         }
 
-        var identityUser = new IdentityUser<Guid>
-        {
-            UserName = request.UserName,
-            Email = request.UserName
+        // create new user
+        var identityUser = new IdentityUser
+        {   
+            UserName = request.Email,
+            Email = request.Email
         };
 
+        // add the user to database
         var identityResult = await _userManager.CreateAsync(identityUser, request.Password);
         if (!identityResult.Succeeded)
         {

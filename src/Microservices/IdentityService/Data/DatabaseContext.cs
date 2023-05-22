@@ -1,6 +1,6 @@
 ﻿namespace IdentityService.Data;
 
-public class DatabaseContext : IdentityDbContext<IdentityUser<Guid>, IdentityRole<Guid>, Guid>
+public class DatabaseContext : IdentityDbContext
 {
     public DatabaseContext(DbContextOptions options) : base(options)
     {

@@ -30,6 +30,7 @@ public class GetAllUsersQryHandler : IRequestHandler<GetAllUsersQry, List<GetAll
                 LastName: user.LastName,
                 BirthDate: _timeFactory.UnixTimeToDateString(user.BirthDateTimestampUnix)));
         }
+
         return results;
     }
 }

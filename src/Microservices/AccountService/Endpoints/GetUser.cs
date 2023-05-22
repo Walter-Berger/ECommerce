@@ -4,12 +4,9 @@ public static class GetUser
 {
     public static IEndpointRouteBuilder MapGetUser(this IEndpointRouteBuilder endpoints)
     {
-        endpoints.MapGet(EndpointRoutes.User.Get, async (HttpContext context, ISender mediator, CancellationToken ct) =>
+        endpoints.MapGet(EndpointRoutes.User.Get, async (Guid id, ISender mediator, CancellationToken ct) =>
         {
-            var claims = context.User.Claims;
-            var userId = claims.FirstOrDefault(c => c.Type == "userId")!.Value;
-
-            var qry = new GetUserQry(Guid.Parse(userId));
+            var qry = new GetUserQry(id);
             var result = await mediator.Send(qry, ct);
             var response = new GetUserResponse(
                 Id: result.Id,

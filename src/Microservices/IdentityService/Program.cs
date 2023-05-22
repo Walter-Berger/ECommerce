@@ -18,7 +18,7 @@ builder.Services.AddScoped<IJwtService, JwtService>(_ => new JwtService(
     jwtIssuer: jwtIssuer,
     jwtAudience: jwtAudience));
 
-builder.Services.AddIdentity<IdentityUser<Guid>, IdentityRole<Guid>>(options =>
+builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
     {
         options.Password.RequireDigit = true;
         options.Password.RequiredLength = 8;
