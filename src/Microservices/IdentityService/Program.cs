@@ -13,6 +13,8 @@ builder.Services.AddValidatorsFromAssemblyContaining<Program>();
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblyContaining<Program>());
 builder.Services.AddTransient<ExceptionHandlingMiddleware>();
 builder.Services.AddScoped<ICredentialService, CredentialService>();
+builder.Services.AddRabbitMq();
+
 builder.Services.AddScoped<IJwtService, JwtService>(_ => new JwtService(
     jwtKey: jwtKey,
     jwtIssuer: jwtIssuer,

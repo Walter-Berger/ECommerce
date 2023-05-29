@@ -17,6 +17,7 @@ global using AccountService.Validators;
 global using ECommerce.Contracts.Requests;
 global using ECommerce.Contracts.Responses;
 global using FluentValidation;
+global using MassTransit;
 global using MediatR;
 global using Microsoft.AspNetCore.Authentication.JwtBearer;
 global using Microsoft.EntityFrameworkCore;
